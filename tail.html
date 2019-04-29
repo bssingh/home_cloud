@@ -1,0 +1,50 @@
+        </div>
+        <!-- <picture> example -->
+        <!-- SubMain -->
+    <!-- Toastr resources for Notifications -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <!-- Toastr resources -->
+    <!-- IntersectionObserver Polyfill -->
+    <script src="https://rawgit.com/w3c/IntersectionObserver/master/polyfill/intersection-observer.js"></script>
+    <!-- IntersectionObserver Polyfill -->
+    <script src="dist/lozad.min.js"></script>
+    <script type="text/javascript">
+    toastr.options = {
+        "progressBar": true,
+        "timeOut": "1500"
+    }
+    // Initialize library to lazy load images
+    var observer = lozad('.lozad', {
+        threshold: 0.1,
+        load: function(el) {
+            el.src = el.getAttribute("data-src");
+            el.onload = function() {
+                toastr["success"](el.localName.toUpperCase() + " " + el.getAttribute("data-index") + " lazy loaded.")
+            }
+        }
+    })
+
+    // Picture observer
+    // with default `load` method
+    var pictureObserver = lozad('.lozad-picture', {
+        threshold: 0.1
+    })
+
+    observer.observe()
+    pictureObserver.observe()
+
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131689813-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-131689813-1');
+    </script>
+</body>
+
+</html>
